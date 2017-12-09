@@ -102,5 +102,21 @@ class Actor
     {
         return $this->actorLastname;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getActorMovies()
+    {
+        return $this->actorMovies;
+    }
+
+    /**
+     * @param mixed $actorMovies
+     */
+    public function setActorMovies($actorMovies)
+    {
+        $this->actorMovies = $actorMovies;
+    }
 }
 

@@ -1,1 +1,35 @@
 {% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+    {% if products is not empty %}
+            <div id="products-tabs-content" class="row tab-content">
+            <div class="tab-pane active" id="all">
+        {% for product in products %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="item">
+                            <div class="item-image-container">
+                                <figure>
+                                    <a href="#">
+                                        <img src="http://via.placeholder.com/228x319" alt="" class="item-image">
+                                        <img src="http://via.placeholder.com/228x319" alt="" class="item-image-hover">
+                                    </a>
+                                </figure>
+                                <span class="new-rect">{% if product.productReleaseDate is defined %}{{ product.productReleaseDate|date("Y") }}{% endif %}</span>
+                                <span class="discount-rect">{% if product.productPrice is defined  %}{{ product.productPrice }}€{% endif %}</span>
+                            </div><!-- End .item-image -->
+                            <div class="item-meta-container">
+                                <h3 class="item-name"><a href="#">{% if product.productTitle is defined %}{{ product.productTitle }}{% endif %}</a></h3>
+                                <p class="item-name">{% if product.productSummary is defined %}{{ product.productSummary }}{% endif %}</p>
+                                <div class="item-action">
+                                    {#   <a href="#" class="item-add-btn">
+                                           <span class="icon-cart-text">Add to Cart</span>
+                                       </a>#}
+                                </div><!-- End .item-action -->
+                            </div><!-- End .item-meta-container -->
+                        </div><!-- End .item -->
+                    </div><!-- End .col-md-4 -->
+        {% endfor %}
+            </div><!-- End .tab-pane -->
+            </div><!-- End #products-tabs-content -->
+    {% endif %}
+{% endblock %}

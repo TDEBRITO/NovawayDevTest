@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ProductInterface
  *
- * @ORM\Table(name="product_interface")
- * @ORM\Entity(repositoryClass="AdminBundle\Repository\ProductInterfaceRepository")
+ * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="AdminBundle\Repository\ProductRepository")
  */
-class ProductInterface
+class Product
 {
     /**
      * @var int
@@ -21,17 +21,11 @@ class ProductInterface
      */
     private $id;
 
+
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="product_type", type="integer")
-     */
-    /**
-     * @var integer
-     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\ProductType")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="productType", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="product_type", type="string", length=255)
      */
     private $productType;
 
@@ -41,6 +35,13 @@ class ProductInterface
      * @ORM\Column(name="product_title", type="string", length=255)
      */
     private $productTitle;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="product_price", type="float", length=255)
+     */
+    private $productPrice;
 
     /**
      * @var \DateTime
@@ -55,6 +56,20 @@ class ProductInterface
      * @ORM\Column(name="product_summary", type="text")
      */
     private $productSummary;
+
+    /**
+     * One Product has One Shipment.
+     * @ORM\OneToOne(targetEntity="AdminBundle\Entity\Book",cascade={"persist"})
+     * @ORM\JoinColumn(name="book_attributes", referencedColumnName="id")
+     */
+    private $bookAttributes;
+
+    /**
+     * One Product has One Shipment.
+     * @ORM\OneToOne(targetEntity="AdminBundle\Entity\Movie",cascade={"persist"})
+     * @ORM\JoinColumn(name="movie_attributes", referencedColumnName="id")
+     */
+    private $movieAttributes;
 
 
     /**
@@ -162,5 +177,54 @@ class ProductInterface
     {
         return $this->productSummary;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBookAttributes()
+    {
+        return $this->bookAttributes;
+    }
+
+    /**
+     * @param mixed $bookAttributes
+     */
+    public function setBookAttributes($bookAttributes)
+    {
+        $this->bookAttributes = $bookAttributes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMovieAttributes()
+    {
+        return $this->movieAttributes;
+    }
+
+    /**
+     * @param mixed $movieAttributes
+     */
+    public function setMovieAttributes($movieAttributes)
+    {
+        $this->movieAttributes = $movieAttributes;
+    }
+
+    /**
+     * @return float
+     */
+    public function getProductPrice()
+    {
+        return $this->productPrice;
+    }
+
+    /**
+     * @param float $productPrice
+     */
+    public function setProductPrice($productPrice)
+    {
+        $this->productPrice = $productPrice;
+    }
+
 }
 

@@ -10,9 +10,17 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="movie")
  * @ORM\Entity(repositoryClass="AdminBundle\Repository\MovieRepository")
  */
-class Movie extends ProductInterface
+class Movie
 {
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
     /**
      * @var string
      *
@@ -29,23 +37,39 @@ class Movie extends ProductInterface
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="Actor", inversedBy="actor_movies")
-     * @ORM\JoinTable(name="product_actors")
+     * @var string
+     *
+     * @ORM\Column(name="product_actor", type="string", length=255)
      */
     private $productActors;
 
     /**
-     * @var int
+     * @var float
      *
-     * @ORM\Column(name="product_length", type="integer")
+     * @ORM\Column(name="product_length", type="float")
      */
     private $productLength;
+
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isblue_ray", type="boolean")
+     */
+    private $isBlueRay;
 
 
     public function __construct() {
         $this->productActors= new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set productIsan
@@ -93,8 +117,7 @@ class Movie extends ProductInterface
     public function getProductDirector()
     {
         return $this->productDirector;
-    }
-
+         }
 
 
     /**
@@ -120,5 +143,38 @@ class Movie extends ProductInterface
     {
         return $this->productLength;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getProductActors()
+    {
+        return $this->productActors;
+    }
+
+    /**
+     * @param mixed $productActors
+     */
+    public function setProductActors($productActors)
+    {
+        $this->productActors = $productActors;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isIsBlueRay()
+    {
+        return $this->isBlueRay;
+    }
+
+    /**
+     * @param boolean $isBlueRay
+     */
+    public function setIsBlueRay($isBlueRay)
+    {
+        $this->isBlueRay = $isBlueRay;
+    }
+
 }
 

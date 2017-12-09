@@ -1,0 +1,67 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+{% block product %}
+    <!-- create new order panel -->
+<div class="panel mb25 mt5">
+    {{ form_start(form, {attr: {class: 'gui-input'} }) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+   {# <div class="panel-body p20 pb10">
+        <div class="tab-content pn br-n admin-form">
+            <div id="tab1_1" class="tab-pane active">
+
+                <div class="section row mbn">
+                    <div class="col-md-4">
+                        <div class="">
+                            <label for="product-price" class="field prepend-icon">
+                                <input type="text" name="product-price" id="product-price" class="gui-input" placeholder="Product Price...">
+                                <label for="product-price" class="field-icon">
+                                    <i class="fa fa-usd"></i>
+                                </label>
+                            </label>
+                        </div>
+                        <!-- end section -->
+
+                        <div class="">
+                            <label for="product-vendor" class="field prepend-icon">
+                                <input type="text" name="product-vendor" id="product-vendor" class="gui-input" placeholder="Vendor Source...">
+                                <label for="product-vendor" class="field-icon">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </label>
+                            </label>
+                        </div>
+                        <!-- end section -->
+
+                        <div class="">
+                            <label for="product-sku" class="field prepend-icon">
+                                <input type="text" name="product-sku" id="product-sku" class="gui-input" placeholder="Product SKU...">
+                                <label for="product-sku" class="field-icon">
+                                    <i class="fa fa-barcode"></i>
+                                </label>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-8 pl15">
+                        <div class="section mb10">
+                            <label for="name2" class="field prepend-icon">
+                                <input type="text" name="name2" id="name2" class="event-name gui-input br-light light" placeholder="Product Title">
+                                <label for="name2" class="field-icon">
+                                    <i class="fa fa-tag"></i>
+                                </label>
+                            </label>
+                        </div>
+                        <div class="section mb10">
+                            <label class="field prepend-icon">
+                                <textarea style="height: 160px;" class="gui-textarea br-light bg-light" id="comment" name="comment" placeholder="Product Description"></textarea>
+                                <label for="comment" class="field-icon">
+                                    <i class="fa fa-comments"></i>
+                                </label>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>#}
+</div>
+{% endblock %}

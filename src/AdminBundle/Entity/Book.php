@@ -10,13 +10,22 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="book")
  * @ORM\Entity(repositoryClass="AdminBundle\Repository\BookRepository")
  */
-class Book extends ProductInterface
+class Book
 {
-
     /**
      * @var int
      *
-     * @ORM\Column(name="product_isbn", type="integer")
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_isbn", type="string", length=255)
      */
     private $productIsbn;
 
@@ -35,6 +44,14 @@ class Book extends ProductInterface
      */
     private $productPageNumber;
 
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
 
     /**

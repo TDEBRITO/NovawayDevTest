@@ -13,7 +13,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:Dashboard:index.html.twig' );
+        $em= $this->getDoctrine()->getManager();
+        $products = $em->getRepository('AdminBundle:Product')->findLastFive();
+
+        return $this->render('AppBundle:Dashboard:index.html.twig', [
+            'products' => $products
+        ] );
     }
 }

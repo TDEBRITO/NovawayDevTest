@@ -28,30 +28,6 @@
 <!-- Start: Main -->
 <div id="main">
 
-    <!-- Start: Header -->
-    <header class="navbar navbar-fixed-top navbar-shadow">
-        <div class="navbar-branding">
-            <a class="navbar-brand" href="dashboard.html">
-                <b>Novaway Test</b>Admin
-            </a>
-            <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown menu-merge">
-                <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-                    <span class="hidden-xs pl15">NovawayAdm </span>
-                    <span class="caret caret-tp hidden-xs"></span>
-                </a>
-                <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
-                    <li class="dropdown-footer">
-                        <a href="/logout" class="">
-                            <span class="fa fa-power-off pr5"></span> Logout </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </header>
-    <!-- End: Header -->
 
     <!-- Start: Sidebar -->
     <aside id="sidebar_left" class="nano nano-light affix">
@@ -63,165 +39,32 @@
     <!-- Start: Content-Wrapper -->
     <section id="content_wrapper">
 
+    <header id="topbar" class="ph10">
+        <div class="topbar-left">
+            <ul class="nav nav-list nav-list-topbar pull-left">
+                <li class="active">
+                    <a href="#">Products</a>
+                </li>
+            </ul>
+        </div>
+        <div class="topbar-right hidden-xs hidden-sm">
+            <a href="#" class="btn btn-default btn-sm fw600 ml10">
+                <span class="fa fa-plus pr5"></span> Add Product</a>
+        </div>
+    </header>
+    <!-- End: Topbar -->
 
-        <!-- Start: Topbar -->
-        <header id="topbar" class="ph10">
-            <div class="topbar-left">
-                <ul class="nav nav-list nav-list-topbar pull-left">
-                    <li class="active">
-                        <a href="ecommerce_products.html">Products</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="topbar-right hidden-xs hidden-sm">
-                <a href="ecommerce_products.html" class="btn btn-default btn-sm fw600 ml10">
-                    <span class="fa fa-plus pr5"></span> Add Product</a>
-            </div>
-        </header>
-        <!-- End: Topbar -->
+    <!-- Begin: Content -->
+    <section id="content" class="table-layout animated fadeIn">
 
-        <!-- Begin: Content -->
-        <section id="content" class="table-layout animated fadeIn">
+        <!-- begin: .tray-center -->
+        <div class="tray tray-center">
+            {% block product %}
+            {% endblock %}
+        </div>
+        <!-- end: .tray-center -->
+    </section>
 
-            <!-- begin: .tray-center -->
-            <div class="tray tray-center">
-
-                <!-- create new order panel -->
-                <div class="panel mb25 mt5">
-                    <div class="panel-heading">
-                        <span class="panel-title hidden-xs"> Add New Product</span>
-                    </div>
-                    <div class="panel-body p20 pb10">
-                        <div class="tab-content pn br-n admin-form">
-                            <div id="tab1_1" class="tab-pane active">
-
-                                <div class="section row mbn">
-                                    <div class="col-md-4">
-                                        <div class="">
-                                            <label for="product-price" class="field prepend-icon">
-                                                <input type="text" name="product-price" id="product-price" class="gui-input" placeholder="Product Price...">
-                                                <label for="product-price" class="field-icon">
-                                                    <i class="fa fa-usd"></i>
-                                                </label>
-                                            </label>
-                                        </div>
-                                        <!-- end section -->
-
-                                        <div class="">
-                                            <label for="product-vendor" class="field prepend-icon">
-                                                <input type="text" name="product-vendor" id="product-vendor" class="gui-input" placeholder="Vendor Source...">
-                                                <label for="product-vendor" class="field-icon">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </label>
-                                            </label>
-                                        </div>
-                                        <!-- end section -->
-
-                                        <div class="">
-                                            <label for="product-sku" class="field prepend-icon">
-                                                <input type="text" name="product-sku" id="product-sku" class="gui-input" placeholder="Product SKU...">
-                                                <label for="product-sku" class="field-icon">
-                                                    <i class="fa fa-barcode"></i>
-                                                </label>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 pl15">
-                                        <div class="section mb10">
-                                            <label for="name2" class="field prepend-icon">
-                                                <input type="text" name="name2" id="name2" class="event-name gui-input br-light light" placeholder="Product Title">
-                                                <label for="name2" class="field-icon">
-                                                    <i class="fa fa-tag"></i>
-                                                </label>
-                                            </label>
-                                        </div>
-                                        <div class="section mb10">
-                                            <label class="field prepend-icon">
-                                                <textarea style="height: 160px;" class="gui-textarea br-light bg-light" id="comment" name="comment" placeholder="Product Description"></textarea>
-                                                <label for="comment" class="field-icon">
-                                                    <i class="fa fa-comments"></i>
-                                                </label>
-
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- recent orders table -->
-                <div class="panel">
-
-                    <div class="panel-body pn">
-                        <div class="table-responsive">
-                            <table class="table admin-form theme-warning tc-checkbox-1 fs13">
-                                <thead>
-                                <tr class="bg-light">
-                                    <th class="text-center">Select</th>
-                                    <th class="">Image</th>
-                                    <th class="">Product Title</th>
-                                    <th class="">SKU</th>
-                                    <th class="">Price</th>
-                                    <th class="">Stock</th>
-                                    <th class="text-right">Status</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="text-center">
-                                        <label class="option block mn">
-                                            <input type="checkbox" name="mobileos" value="FR">
-                                            <span class="checkbox mn"></span>
-                                        </label>
-                                    </td>
-                                    <td class="w100">
-                                        <img class="img-responsive mw40 ib mr10" title="user" src="assets/img/stock/products/thumb_1.jpg">
-                                    </td>
-                                    <td class="">Apple Ipod 4G - Silver</td>
-                                    <td class="">#21362</td>
-                                    <td class="">$215</td>
-                                    <td class="">1,400</td>
-                                    <td class="text-right">
-                                        <div class="btn-group text-right">
-                                            <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Active
-                                                <span class="caret ml5"></span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li>
-                                                    <a href="#">Edit</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Delete</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Archive</a>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li>
-                                                    <a href="#">Complete</a>
-                                                </li>
-                                                <li class="active">
-                                                    <a href="#">Pending</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Canceled</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- end: .tray-center -->
-        </section>
         <!-- End: Content -->
     </section>
 </div>
