@@ -1,8 +1,11 @@
 admin:
     resource: "@AdminBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /admin
 
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+logout:
+    path: /logout
