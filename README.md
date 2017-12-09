@@ -22,4 +22,5 @@ NovawayDevTest
 * Mise en place de la creéation et affichage des produits
 * WIP - mise en place du service pour alerte de mots-clès et envoi de mail
 * A faire: Implémenter le moteur de recherche
+* Au niveau des entitées, il reste à corriger quelques détails, notament les acteurs (prévus à la base comme un array que j'ai choisi d'implementer comme 1 champ par souci de temps), de même pour le type d'articles qui est resté en dur
 
