@@ -12,6 +12,11 @@ NovawayDevTest
 * php bin/console doctrine:schema:update --force
 * php bin/console doctrine:migrations:migrate
 
+## Informations pratiques
+
+* La plateforme admin est disponible sur /admin
+* Les accès à la plateforme admin sont id: admin mdp: admin
+
 ## Commentaires
 
 * Mise en place de la creéation et affichage des produits
