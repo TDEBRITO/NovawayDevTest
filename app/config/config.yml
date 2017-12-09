@@ -68,3 +68,20 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+security:
+    firewalls:
+        main:
+            anonymous: ~
+            http_basic: ~
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN}
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin:
+                        password: admin
+                        roles: 'ROLE_ADMIN'
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
