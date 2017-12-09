@@ -14,7 +14,7 @@ NovawayDevTest
 
 ## Commentaires
 
-# Mise en place de la creéation et affichage des produits
-# WIP - mise en place du service pour alerte de mots-clès et envoi de mail
-# A faire: Implémenter le moteur de recherche
+* Mise en place de la creéation et affichage des produits
+* WIP - mise en place du service pour alerte de mots-clès et envoi de mail
+* A faire: Implémenter le moteur de recherche
 
